@@ -1,0 +1,50 @@
+{
+  "name": "sky",
+  "version": "1.0.0",
+  "description": "TechMahindra/SKY RESTful API test.",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jasmine": "^3.5.0",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LucasHaddad/sky.git"
+  },
+  "keywords": [
+    "sky",
+    "rest",
+    "restful",
+    "api",
+    "tech",
+    "mahindra",
+    "techmahindra",
+    "git",
+    "github",
+    "test",
+    "jasmine",
+    "nodejs",
+    "node",
+    "express",
+    "expressjs",
+    "mongo",
+    "mongodb",
+    "mongoose",
+    "jsonwebtoken",
+    "jwt"
+  ],
+  "author": "Lucas Haddad <lucasmh97@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LucasHaddad/sky/issues"
+  },
+  "homepage": "https://github.com/LucasHaddad/sky#readme"
+}
