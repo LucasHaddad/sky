@@ -13,7 +13,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
