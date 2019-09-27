@@ -1,25 +1,49 @@
-class Routing extends Exception {
-    constructor(message, code) {
-        super(message, code);
+/**
+ * Defines the Routing exceptions.
+ */
+module.exports = class Routing extends Exception {
+    /**
+     * Retrieves a bad request message JSON.
+     * @param {Object} response 
+     */
+    static badRequest(response) {
+        response.status(400);
+        response.json({message: "Bad request!"});
     }
 
-    static badRequest() {
-        return new this("Bad request!", 400);
+    /**
+     * Retrieves a unauthorized message JSON.
+     * @param {Object} response 
+     */
+    static unauthorized(response) {
+        response.status(401);
+        response.json({message: "Unauthorized!"});
     }
     
-    static unauthorized() {
-        return new this("Unauthorized!", 401);
-    }
-    
-    static forbidden() {
-        return new this("Forbidden!", 403);
+    /**
+     * Retrieves a forbidden message JSON.
+     * @param {Object} response 
+     */
+    static forbidden(response) {
+        response.status(403);
+        response.json({message: "Forbidden!"});
     }
 
-    static notFound() {
-        return new this("Not found!", 404);
+    /**
+     * Retrieves a not found message JSON.
+     * @param {Object} response 
+     */
+    static notFound(response) {
+        response.status(404);
+        response.json({message: "Not found!"});
     }
-    
-    static methodNotAllowed() {
-        return new this("Method not allowed!", 405);
+
+    /**
+     * Retrieves a method not allowed message JSON.
+     * @param {Object} response 
+     */
+    static methodNotAllowed(response) {
+        response.status(405);
+        response.json({message: "Method not allowed!"});
     }
 }
