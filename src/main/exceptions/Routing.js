@@ -1,7 +1,7 @@
 /**
  * Defines the Routing exceptions.
  */
-module.exports = class Routing extends Exception {
+module.exports = class Routing {
     /**
      * Retrieves a bad request message JSON.
      * @param {Object} response 

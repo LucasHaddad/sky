@@ -1,14 +1,10 @@
 const MongoConnection = require('../dbal/MongoConnection.js');
 const mongoose = require('mongoose');
+const sha256 = require('sha256');
 /**
  * Defines the User service.
  */
 module.exports = class User {
-    /**
-     * 
-     */
-    static dataSourceName = 'users';
-
     /**
      * Retrieves the data base connection.
      * @return {Object} 
@@ -20,6 +16,8 @@ module.exports = class User {
             email: String,
             password: String,
             contacts: Array,
+            createdAt: Number,
+            updatedAt: Number,
         });
         return new MongoConnection('mongo://localhost:27017/sky', schema);
     }
@@ -34,9 +32,16 @@ module.exports = class User {
     }
 
     /**
-     * 
+     * Creeates a new user and retrieves it.
+     * @param {Object} data
+     * @return {Promise}
      */
     static save(data) {
-        return getDB().post(dataSourceName, data);
+        let now = Date.now().toString();
+        data.id = now;
+        data.password = sha256(data.password);
+        data.createdAt = Math.floor(now / 1000) - 30;
+        data.updatedAt = data.createdAt;
+        return getDB().post('user', data);
     }
 }

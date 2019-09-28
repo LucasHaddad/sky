@@ -1,0 +1,92 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "TechMahindra/SKY test API.",
+      "version": "1.0.0",
+      "title": "TechMahindra/SKY"
+    },
+    "paths": {
+      "/signin": {
+        "post": {
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "password",
+              "description": "User password",
+              "required": true
+            },
+            {
+                "in": "body",
+                "name": "email",
+                "description": "User email",
+                "required": true
+            } 
+          ],
+          "responses": {
+            "200": {
+              "description": "User info + JWT"
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+    },
+      "/signup": {
+        "post": {
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "password",
+              "description": "User password",
+              "required": true
+            },
+            {
+                "in": "body",
+                "name": "email",
+                "description": "User email",
+                "required": true
+            },
+            {
+                "in": "body",
+                "name": "name",
+                "description": "User name",
+                "required": true
+            },
+            {
+                "in": "body",
+                "name": "contacts",
+                "description": "User contacts",
+                "required": true
+            } 
+          ],
+          "responses": {
+            "200": {
+              "description": "User info + JWT"
+            },
+            "401": {
+              "description": "Unauthorized"
+            }
+          }
+        }
+    },
+      "/author": {
+        "get": {
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Author info"
+            }
+          }
+        }
+      }
+    }
+}

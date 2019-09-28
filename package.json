@@ -7,13 +7,18 @@
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1",
     "jasmine": "^3.5.0",
-    "mongoose": "^5.7.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.1",
+    "sha256": "^0.2.0",
+    "swagger-ui-express": "^4.1.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^6.4.0"
+  },
   "scripts": {
-    "test": "jasmine",
+    "lint": "eslint ./src/**/*.js",
+    "test": "jasmine --config=./jasmine.json",
     "start": "node index.js"
   },
   "repository": {

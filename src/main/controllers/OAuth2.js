@@ -1,3 +1,4 @@
+const RoutingException = require('../exceptions/Routing.js');
 const Service = require('../services/OAuth2.js');
 /**
  * Defines the OAuth2 controller.
@@ -9,8 +10,13 @@ module.exports = class OAuth2 {
      * @param {Object} response 
      */
     static signin(request, response) {
-        response.status(200);
-        response.json(Service.signin(request.body));
+        let body = Service.signin(request.body);
+        if (body) {
+            response.status(200);
+            response.json(body);    
+        } else {
+            RoutingException.unauthorized(response);
+        }
     }
 
     /**
@@ -19,7 +25,12 @@ module.exports = class OAuth2 {
      * @param {Object} response 
      */
     static signup(request, response) {
-        response.status(200);
-        response.json(Service.signup(request.body));
+        let body = Service.signin(request.body);
+        if (body) {
+            response.status(200);
+            response.json(body);    
+        } else {
+            RoutingException.badRequest(response);
+        }
     }
 }

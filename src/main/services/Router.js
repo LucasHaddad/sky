@@ -1,5 +1,5 @@
-const OAuth2 = require('../constrollers/OAuth2.js');
-const User = require('../constrollers/User.js');
+const OAuth2 = require('../controllers/OAuth2.js');
+const User = require('../controllers/User.js');
 const RoutingException = require('../exceptions/Routing.js');
 
 /**
@@ -11,7 +11,7 @@ module.exports = class Router {
      * @param {Object} server 
      */
     static serve(server) {
-        server.get('/user/:id', function (request, response) {
+        server.get('/user/:id/:token', function (request, response) {
             User.get(request, response);
         });
         
@@ -23,7 +23,7 @@ module.exports = class Router {
             OAuth2.signup(request, response);
         });
         
-        server.all(['/:route', '/'], (request, response) => {
+        server.all(['/:route', '/', '/:route/:param'], (request, response) => {
             RoutingException.badRequest(response);
         });
         
